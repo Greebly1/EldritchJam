@@ -4,10 +4,10 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(menuName ="ScriptableObjects/Wave")]
-public class Wave : ScriptableObject
+public class enemyWave : ScriptableObject
 {
-    [SerializeField] List<EnemyWaveData> EnemyHordes;
-    public List<EnemyWaveData> enemyHordes
+    [SerializeField] List<HordeData> EnemyHordes;
+    public List<HordeData> enemyHordes
     {
         get { return EnemyHordes; }
     }

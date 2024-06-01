@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(menuName = "ScriptableObjects/EnemyWaveData")]
-public class EnemyWaveData : ScriptableObject
+public class HordeData : ScriptableObject
 {
     [SerializeField] GameObject EnemyPrefab;
     public GameObject enemyPrefab { get { return EnemyPrefab; } }
