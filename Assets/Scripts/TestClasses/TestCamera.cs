@@ -6,6 +6,7 @@ public class TestCamera : MonoBehaviour
 {
     private float screenWidth;
     private float screenHeight;
+    public float sensitivity;
 
     // Start is called before the first frame update
     void Start()
@@ -19,31 +20,9 @@ public class TestCamera : MonoBehaviour
     {
         if (Input.GetMouseButton(1)) // Right mouse button
         {
-            Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-            // Move the camera right
-            if (Mathf.Abs(worldPoint.x - (Camera.main.transform.position.x + screenWidth)) <= 2)
-            {
-                Camera.main.transform.Translate(new Vector2(10 * Time.deltaTime, 0));
-            }
-
-            // Move the camera left
-            if (Mathf.Abs(worldPoint.x - (Camera.main.transform.position.x - screenWidth)) <= 2)
-            {
-                Camera.main.transform.Translate(new Vector2(-10 * Time.deltaTime, 0));
-            }
-
-            // Move the camera up
-            if (Mathf.Abs(worldPoint.y - (Camera.main.transform.position.y + screenHeight)) <= 2)
-            {
-                Camera.main.transform.Translate(new Vector2(0, 10 * Time.deltaTime));
-            }
-
-            // Move the camera right
-            if (Mathf.Abs(worldPoint.y - (Camera.main.transform.position.y - screenHeight)) <= 2)
-            {
-                Camera.main.transform.Translate(new Vector2(0, -10 * Time.deltaTime));
-            }
+            float mousePositionDeltaX = -Input.mousePositionDelta.x * 0.001f * sensitivity;
+            float mousePositionDeltaY = -Input.mousePositionDelta.y * 0.001f * sensitivity;
+            Camera.main.transform.position += new Vector3(mousePositionDeltaX, mousePositionDeltaY, 0);
         }
     }
 }
