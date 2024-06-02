@@ -9,5 +9,5 @@ using UnityEngine;
 /// </summary>
 public class Enemy : MonoBehaviour, ITargetable //should probably implement IDamagable, and ITargetable
 {
-    public static List<Enemy> AllActiveEnemies { get; private set; }
+    public static List<Enemy> AllActiveEnemies { get; private set; } = new List<Enemy>();
 }
