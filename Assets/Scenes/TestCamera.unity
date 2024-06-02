@@ -3583,8 +3583,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - {fileID: 11400000, guid: df1367ceb501b0c46bf446a5f214d3be, type: 2}
-  emptyWave: {fileID: 0}
+  - {fileID: 11400000, guid: f4dd3c11c1ad63d4eb19ea5a1b4053bf, type: 2}
+  emptyWave: {fileID: 11400000, guid: f4dd3c11c1ad63d4eb19ea5a1b4053bf, type: 2}
   path: {fileID: 252654087}
 --- !u!4 &749812111
 Transform:
