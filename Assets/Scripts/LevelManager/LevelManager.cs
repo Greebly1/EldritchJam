@@ -1,6 +1,7 @@
 using AYellowpaper;
 using System.Collections;
 using System.Collections.Generic;
+using UltEvents;
 using UnityEngine;
 
 /// <summary>
@@ -12,6 +13,7 @@ using UnityEngine;
 /// </summary>
 public abstract class LevelManager : MonoBehaviour
 {
+    public UltEvent GameStarted = new UltEvent(); //event that fires when the first wave spawns
     [SerializeField] WaveManager WaveManagerInstance;
     public WaveManager waveManagerInstance
     {
