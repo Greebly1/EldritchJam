@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private TMP_Text bloodText;
     [SerializeField] private Slider insightBar;
     [SerializeField] private Slider insanityBar;
+    [SerializeField] private GameObject gameOverPopup;
 
     private bool draggingTower;
     private GameObject currentTower;
@@ -29,6 +30,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         cancelButton.SetActive(false);
+        gameOverPopup.SetActive(false);
     }
 
     // Update is called once per frame
@@ -36,6 +38,16 @@ public class GameController : MonoBehaviour
     {
         // Update stat text and bars
         healthText.text = "Health: " + stats.health.ToString();
+
+        if (stats.health <= 0)
+        {
+            draggingTower = false;
+            cancelButton.SetActive(false);
+            panel.SetActive(false);
+            if (currentTower != null) Destroy(currentTower);
+            gameOverPopup.SetActive(true);
+        }
+
         bloodText.text = "Blood: " + stats.blood.ToString();
         insightBar.value = stats.insight;
         insanityBar.value = stats.insanity;

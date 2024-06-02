@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameGameObjects.SetActive(false);
         currentState = GameStates.MainMenu;
         ChangeState((int)currentState);
     }
@@ -84,8 +85,6 @@ public class GameManager : MonoBehaviour
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(false);
                 gameGameObjects.SetActive(true);
-
-                currentLevel.BeginGame();
                 break;
             case GameStates.Options:
                 mainMenu.SetActive(false);

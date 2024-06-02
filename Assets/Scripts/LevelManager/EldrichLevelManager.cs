@@ -39,4 +39,11 @@ public class EldrichLevelManager : LevelManager
     {
         GameManager.Instance.currentLevel = this;
     }
+
+    private void OnEnable()
+    {
+        GameManager.Instance.currentLevel = this;
+
+        BeginGame();
+    }
 }
