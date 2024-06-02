@@ -7,9 +7,16 @@ using UnityEngine;
 /// Dependents:
 /// IEnemySpawner, EnemyManager, probably more
 /// </summary>
-public abstract class Enemy : MonoBehaviour, ITargetable //should probably implement IDamagable, and ITargetable
+public class Enemy : MonoBehaviour, ITargetable, IDamageAble //should probably implement IDamagable, and ITargetable
 {
     public static List<Enemy> AllActiveEnemies { get; protected set; } = new List<Enemy>();
+
+    [SerializeField]
+    [Tooltip("The starting health of this enemy.")]
+    [Min(1)]
+    private int startHealth;
+
+    private int currentHealth;
 
     public Vector3 GetPosition()
     {
@@ -19,6 +26,7 @@ public abstract class Enemy : MonoBehaviour, ITargetable //should probably imple
     private void Awake()
     {
         AllActiveEnemies.Add(this);
+        currentHealth = startHealth;
     }
 
     private void OnDestroy()
@@ -26,6 +34,29 @@ public abstract class Enemy : MonoBehaviour, ITargetable //should probably imple
         AllActiveEnemies.Remove(this);
     }
 
-    public IEnemyPath enemyPath;
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
 
+    public int Damage(DamageData damage)
+    {
+        if(damage.teamSource == Team.Player)
+        {
+            currentHealth -= damage.amount;
+            if(currentHealth < 0)
+            {
+                Die();
+            }
+        }
+
+        return currentHealth;
+    }
+
+    private void Die()
+    {
+        Destroy(gameObject);
+    }
+
+    public IEnemyPath enemyPath;
 }
