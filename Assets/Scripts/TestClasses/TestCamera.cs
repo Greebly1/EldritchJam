@@ -7,10 +7,6 @@ public class TestCamera : MonoBehaviour
 {
     private float screenWidth;
     private float screenHeight;
-    private Vector2 prevMousePosition;
-
-    [DllImport("user32.dll")]
-    static extern bool SetCursorPos(float X, float Y);
 
     public float sensitivity;
     [SerializeField] private GameManager gameManager;
