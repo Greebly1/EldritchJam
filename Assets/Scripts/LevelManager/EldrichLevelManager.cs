@@ -49,11 +49,13 @@ public class EldrichLevelManager : LevelManager
     #region monobehavior callbacks 
     private void Awake()
     {
-        GameManager.Instance.currentLevel = this;
+        
     }
 
     private void Start()
     {
+        GameManager.Instance.currentLevel = this;
+
         if (BeginImmediately)
         {
             BeginGame();

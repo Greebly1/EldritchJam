@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    public EldrichGlobalStats stats;
+
+    [Header("Towers")]
     public GameObject tower1;
     public GameObject tower1Sprite;
 
-    public GameObject panel;
-    public GameObject cancelButton;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject cancelButton;
+    [SerializeField] private TMP_Text healthText;
+    [SerializeField] private TMP_Text bloodText;
+    [SerializeField] private Slider insightBar;
+    [SerializeField] private Slider insanityBar;
 
     private bool draggingTower;
     private GameObject currentTower;
@@ -24,6 +34,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Update stat text and bars
+        healthText.text = stats.health.ToString();
+        bloodText.text = stats.blood.ToString();
+        insightBar.value = stats.insight;
+        insanityBar.value = stats.insanity;
+
         if (draggingTower)
         {
             Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
