@@ -15,6 +15,11 @@ public class Worshipper : Weapon
 
     protected override ITargetable GetTarget()
     {
-        return null;
+        return Enemy.AllActiveEnemies[0];
+
+        foreach (Enemy enemy in Enemy.AllActiveEnemies)
+        {
+
+        }
     }
 }
