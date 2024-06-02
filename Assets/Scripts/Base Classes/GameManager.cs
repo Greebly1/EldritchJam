@@ -24,7 +24,15 @@ public class GameManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject creditsMenu;
 
-    public LevelManager currentLevel;
+    LevelManager _currentLevel;
+    public LevelManager currentLevel
+    {
+        get { 
+            if (_currentLevel == null) { 
+                Debug.LogError("There is no current level, or you are trying to access a level that is no longer loaded"); 
+            } return _currentLevel; } 
+        set { _currentLevel = value; } //new level has been loaded
+    } 
 
     private void Awake()
     {
