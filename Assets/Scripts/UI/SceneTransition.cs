@@ -12,6 +12,7 @@ public class SceneTransition : MonoBehaviour
     // Perform the scene transition
     public void Init(int state)
     {
+        Cursor.lockState = CursorLockMode.Locked;
         changeToState = state;
         topBorder.GetComponent<RectTransform>().position = new Vector2(0, 9);
         bottomBorder.GetComponent<RectTransform>().position = new Vector2(0, -9);
@@ -32,6 +33,7 @@ public class SceneTransition : MonoBehaviour
         if (Mathf.Abs(topBorder.GetComponent<RectTransform>().position.y - bottomBorder.GetComponent<RectTransform>().position.y) < 0.1f)
         {
             gameManager.ChangeState(changeToState);
+            Cursor.lockState = CursorLockMode.None;
         }
     }
 }
