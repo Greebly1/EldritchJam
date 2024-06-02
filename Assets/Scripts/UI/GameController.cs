@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public GameObject tower1;
+    public GameObject tower1Sprite;
 
     public GameObject panel;
     public GameObject cancelButton;
 
     private bool draggingTower;
     private GameObject currentTower;
+    private int currentTowerID;
     private bool hoveringOverButton;
 
     // Start is called before the first frame update
@@ -33,20 +35,35 @@ public class GameController : MonoBehaviour
             draggingTower = false;
             cancelButton.SetActive(false);
             panel.SetActive(true);
-            currentTower = null;
+
+            switch (currentTowerID)
+            {
+                case 0:
+                    Instantiate(tower1, currentTower.transform.position, Quaternion.identity);
+                    break;
+                case 1:
+
+                    break;
+                case 2:
+
+                  break;
+            }
+
+            Destroy(currentTower);
         }
     }
 
     public void DragTower(int towerID)
     {
         draggingTower = true;
+        currentTowerID = towerID;
         cancelButton.SetActive(true);
         panel.SetActive(false);
         
         switch (towerID)
         {
             case 0:
-                currentTower = Instantiate(tower1, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                currentTower = Instantiate(tower1Sprite, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
                 break;
             case 1:
 

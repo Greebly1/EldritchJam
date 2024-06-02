@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower1: {fileID: 720882406248700040, guid: 51c7e72ebf6bf0943ab5c08061b19287, type: 3}
+  tower1Sprite: {fileID: 6744314892175545773, guid: b1062623252021c4d8370e76ffa3d894, type: 3}
   panel: {fileID: 362126789}
   cancelButton: {fileID: 1973915594}
 --- !u!1 &131342019
