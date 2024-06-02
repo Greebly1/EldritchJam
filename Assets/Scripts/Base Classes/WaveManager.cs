@@ -18,6 +18,7 @@ public abstract class WaveManager : MonoBehaviour
     [SerializeField] protected List<InterfaceReference<IEnemyPath>> enemyPaths;
 
     public abstract void SpawnNextWave();
+    public abstract void SpawnWave(int waveIndex);
 
     
 }
