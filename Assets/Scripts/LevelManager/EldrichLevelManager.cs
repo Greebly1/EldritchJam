@@ -11,17 +11,6 @@ using UnityEngine;
 /// </summary>
 public class EldrichLevelManager : LevelManager
 {
-    [SerializeField] bool BeginImmediately = true;
-
-
-
-    public void BeginGame()
-    {
-        GameStarted.Invoke();
-        waveManagerInstance.SpawnWave(0);
-        levelState = LevelState.OngoingWave;
-    }
-
     IEnumerator WaveDelayTimer()
     {
         timeUntilNextWave = waveDelay;
@@ -46,22 +35,8 @@ public class EldrichLevelManager : LevelManager
         waveManagerInstance.SpawnNextWave();
     }
 
-    #region monobehavior callbacks 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         GameManager.Instance.currentLevel = this;
-
-        if (BeginImmediately)
-        {
-            BeginGame();
-        }
     }
-
-
-    #endregion
 }

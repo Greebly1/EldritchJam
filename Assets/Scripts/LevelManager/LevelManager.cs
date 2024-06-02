@@ -34,4 +34,11 @@ public abstract class LevelManager : MonoBehaviour
     public abstract void StartWaveImmediate();
     public float waveDelay = 10;
     [HideInInspector] public float timeUntilNextWave = 0; //the number of seconds until the next wave, this variable will countdown with time
+
+    public void BeginGame()
+    {
+        GameStarted.Invoke();
+        waveManagerInstance.SpawnWave(0);
+        levelState = LevelState.OngoingWave;
+    }
 }

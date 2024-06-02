@@ -35,8 +35,8 @@ public class GameController : MonoBehaviour
     void Update()
     {
         // Update stat text and bars
-        healthText.text = stats.health.ToString();
-        bloodText.text = stats.blood.ToString();
+        healthText.text = "Health: " + stats.health.ToString();
+        bloodText.text = "Blood: " + stats.blood.ToString();
         insightBar.value = stats.insight;
         insanityBar.value = stats.insanity;
 
