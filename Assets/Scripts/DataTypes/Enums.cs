@@ -9,3 +9,9 @@ public enum Team
     Enemy,
     None
 }
+
+public enum LevelState
+{
+    OngoingWave,
+    Waiting
+}
