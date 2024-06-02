@@ -21,7 +21,7 @@ public class TestCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1)) // Right mouse button
+        if (Input.GetMouseButton(1) && gameManager.currentState == GameManager.GameStates.Game) // Right mouse button
         {
             Cursor.lockState = CursorLockMode.Locked;
             float mousePositionDeltaX = -Input.mousePositionDelta.x * 0.001f * sensitivity;
