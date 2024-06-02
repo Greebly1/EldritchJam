@@ -1716,59 +1716,59 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: 0
-        y: 0
+        x: -9.6
+        y: 3.64
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.42687237
+        z: -0.3371647
       TangentOut:
         x: 0
         y: 0
-        z: 0.42687237
+        z: 0.3371647
       Rotation:
         value:
-          x: -0.32459828
-          y: 0.62820053
-          z: -0.6282005
-          w: 0.32459852
+          x: 0.47878888
+          y: -0.5203473
+          z: 0.5203475
+          w: -0.47878855
     - Position:
-        x: 3.4817905
-        y: -2.4696424
+        x: -6.24
+        y: 3.36
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.76668006
+        z: -0.7484414
       TangentOut:
         x: 0
         y: 0
-        z: 0.52190375
+        z: 0.573423
       Rotation:
         value:
-          x: -0.03914422
-          y: 0.70602244
-          z: -0.70602244
-          w: 0.03914422
+          x: -0.27272105
+          y: 0.65239805
+          z: -0.65239805
+          w: 0.27272105
     - Position:
-        x: 2.1592503
-        y: -3.9406314
+        x: -6.05
+        y: 1.39
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.19781107
+        z: -0.19791411
       TangentOut:
         x: 0
         y: 0
-        z: 0.19781107
+        z: 0.19791411
       Rotation:
         value:
-          x: -0.25316334
-          y: -0.6602336
-          z: 0.66023356
-          w: 0.2531633
+          x: -0.033980682
+          y: 0.70628977
+          z: -0.70628977
+          w: 0.033980813
     m_MetaData:
     - Mode: 0
       Tension: 0.5
@@ -3584,7 +3584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - {fileID: 11400000, guid: df1367ceb501b0c46bf446a5f214d3be, type: 2}
-  emptyWave: {fileID: 0}
+  emptyWave: {fileID: 11400000, guid: f4dd3c11c1ad63d4eb19ea5a1b4053bf, type: 2}
   path: {fileID: 252654087}
 --- !u!4 &749812111
 Transform:
@@ -5475,7 +5475,7 @@ MonoBehaviour:
   _GlobalStats: {fileID: 289367336}
   waveDelay: 10
   timeUntilNextWave: 0
-  BeginImmediately: 0
+  BeginImmediately: 1
 --- !u!4 &1179481955
 Transform:
   m_ObjectHideFlags: 0
