@@ -6,4 +6,5 @@ using UnityEngine;
 public interface IEnemyPath
 {
     public Vector2 GetPosition(float distanceAlongPath);
+    public float GetLength();
 }

@@ -1,3 +1,4 @@
+using AYellowpaper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +13,8 @@ public class PathMover : MonoBehaviour
     
     [SerializeField] float baseSpeed = 1; //how many units per second this thing moves along the path
     private bool IsMoving = false; //has a public setter/getter
-    public IEnemyPath parentPath; //the path that this object is set to move along
+
+    public InterfaceReference<IEnemyPath> path;
     [HideInInspector] public float speed; // the actual speed this object is moving, we might want to apply slow effects or freeze effects. Changing this will slow them down
 
 
@@ -49,12 +51,14 @@ public class PathMover : MonoBehaviour
     void OnEnable()
     {
         speed = baseSpeed;
+
+        isMoving = true;
     }
     #endregion
 
-    void Move(float amount)
+    void Move(float distance)
     {
-        Vector2 newPosition = parentPath.GetPosition(distanceTravelled += amount);
+        Vector2 newPosition = path.Value.GetPosition((distanceTravelled += distance)/path.Value.GetLength());
         currentPosition = new Vector3(newPosition.x, newPosition.y, currentPosition.z);
     }
 
@@ -62,7 +66,7 @@ public class PathMover : MonoBehaviour
     {
         while (isMoving)
         {
-            Move(speed);
+            Move(speed * Time.deltaTime);
 
             yield return null;
         }
