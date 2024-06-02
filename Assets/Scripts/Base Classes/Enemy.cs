@@ -10,4 +10,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour, ITargetable //should probably implement IDamagable, and ITargetable
 {
     public static List<Enemy> AllActiveEnemies { get; private set; } = new List<Enemy>();
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+
+    private void Awake()
+    {
+        AllActiveEnemies.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        AllActiveEnemies.Remove(this);
+    }
 }

@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UltEvents;
 
 public class CultistProjectile : MonoBehaviour
 {
-    private int damage;
+    private float damage;
     private Weapon source;
 
     [SerializeField]
-    private UnityEvent OnDestroy;
+    private float speed = 1;
 
-    public void Init(int _damage, Weapon _source)
+    [SerializeField]
+    private UltEvent OnDestroy;
+
+    public void Init(float _damage, Weapon _source)
     {
         damage = _damage;
         source = _source;
@@ -19,7 +23,7 @@ public class CultistProjectile : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.down * Time.deltaTime;
+        transform.position += transform.up * speed * Time.deltaTime;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -37,7 +41,7 @@ public class CultistProjectile : MonoBehaviour
 
     private void CollideWithEnemy(IDamageAble enemy)
     {
-        enemy.Damage(new DamageData(damage, source.gameObject, Team.Player));
+        enemy.Damage(new DamageData(Mathf.RoundToInt(damage), source.gameObject, Team.Player));
         DestroyProjectile();
     }
 
@@ -49,6 +53,5 @@ public class CultistProjectile : MonoBehaviour
     private void DestroyProjectile()
     {
         OnDestroy.Invoke();
-        Destroy(gameObject);
     }
 }
