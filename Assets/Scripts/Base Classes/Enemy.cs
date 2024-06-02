@@ -9,7 +9,7 @@ using UnityEngine;
 /// </summary>
 public abstract class Enemy : MonoBehaviour, ITargetable //should probably implement IDamagable, and ITargetable
 {
-    public static List<Enemy> AllActiveEnemies { get; private set; } = new List<Enemy>();
+    public static List<Enemy> AllActiveEnemies { get; protected set; } = new List<Enemy>();
 
     public Vector3 GetPosition()
     {
@@ -25,7 +25,6 @@ public abstract class Enemy : MonoBehaviour, ITargetable //should probably imple
     {
         AllActiveEnemies.Remove(this);
     }
-    public static List<Enemy> AllActiveEnemies { get; protected set; } = new List<Enemy>();
 
     public IEnemyPath enemyPath;
 
