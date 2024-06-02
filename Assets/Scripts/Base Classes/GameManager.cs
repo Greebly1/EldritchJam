@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public GameObject optionsMenu;
     public GameObject creditsMenu;
 
+    public LevelManager currentLevel;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.

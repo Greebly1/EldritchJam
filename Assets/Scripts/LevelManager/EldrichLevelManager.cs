@@ -13,13 +13,7 @@ public class EldrichLevelManager : LevelManager
 {
     [SerializeField] bool BeginImmediately = true;
 
-    private void Start()
-    {
-        if (BeginImmediately)
-        {
-            BeginGame();
-        }
-    }
+
 
     public void BeginGame()
     {
@@ -51,4 +45,21 @@ public class EldrichLevelManager : LevelManager
         levelState = LevelState.OngoingWave;
         waveManagerInstance.SpawnNextWave();
     }
+
+    #region monobehavior callbacks 
+    private void Awake()
+    {
+        GameManager.Instance.currentLevel = this;
+    }
+
+    private void Start()
+    {
+        if (BeginImmediately)
+        {
+            BeginGame();
+        }
+    }
+
+
+    #endregion
 }
