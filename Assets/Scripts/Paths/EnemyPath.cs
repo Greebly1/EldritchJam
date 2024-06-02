@@ -1,3 +1,4 @@
+using AYellowpaper;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -41,6 +42,9 @@ public class EnemyPath : MonoBehaviour, IEnemyPath, IEnemySpawner, IWaveSpawner
     {
         Vector2 position2D = GetPosition(0);
         GameObject enemy = Instantiate(enemyPrefab, new Vector3(position2D.x, position2D.y, 0), Quaternion.identity);
+        PathMover movementComponent = enemy.GetComponentInChildren<PathMover>();
+        movementComponent.path = this;
+
         Enemy enemyComponent = enemy.GetComponentInChildren<Enemy>();
         if (enemyComponent != null) { enemyComponent.enemyPath = this; }
         return enemyComponent;
