@@ -84,6 +84,7 @@ public class Tower : MonoBehaviour
         foreach(Weapon weapon in weapons)
         {
             weapon.Init(this);
+            weapon.StartAttackLoop();
         }
     }
 }

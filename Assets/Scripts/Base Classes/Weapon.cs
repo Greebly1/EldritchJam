@@ -13,6 +13,9 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField]
     [Tooltip("The base value for calculating this weapon's damage.")]
     protected float damage = 1;
+    [SerializeField]
+    [Tooltip("The base value for calculating how often this weapon attacks.")]
+    protected float attackSpeed = 1;
     #endregion InspectorFields
 
     protected Tower attachedTower;

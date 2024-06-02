@@ -8,9 +8,14 @@ using UnityEngine;
 /// </summary>
 public class Worshipper : Weapon
 {
+    [SerializeField]
+    private GameObject worshipperProjectile;
+
     protected override async Awaitable AttackPattern()
     {
-        
+        CultistProjectile projectile = Instantiate(worshipperProjectile, transform.position, Quaternion.LookRotation(Vector3.forward, GetTarget().GetPosition() - transform.position)).GetComponent<CultistProjectile>();
+        projectile.Init(damage * attachedTower.DamageMultiplier, this);
+        await Awaitable.WaitForSecondsAsync(attachedTower.AttackSpeedMultiplier * attackSpeed);
     }
 
     protected override ITargetable GetTarget()
