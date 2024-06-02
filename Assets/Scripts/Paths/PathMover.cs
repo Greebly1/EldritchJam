@@ -19,7 +19,7 @@ public class PathMover : MonoBehaviour
     [SerializeField] float baseSpeed = 1; //how many units per second this thing moves along the path
     private bool IsMoving = false; //has a public setter/getter
 
-    public InterfaceReference<IEnemyPath> path;
+    public IEnemyPath path;
     [HideInInspector] public float speed; // the actual speed this object is moving, we might want to apply slow effects or freeze effects. Changing this will slow them down
 
 
@@ -55,7 +55,7 @@ public class PathMover : MonoBehaviour
     {
         get
         {
-            return distanceTravelled >= path.Value.GetLength() - REACHED_END_PADDING;
+            return distanceTravelled >= path.GetLength() - REACHED_END_PADDING;
         }
     }
     #endregion
@@ -67,16 +67,24 @@ public class PathMover : MonoBehaviour
 
         isMoving = true;
     }
+
+    private void Update()
+    {
+        
+    }
+
     #endregion
 
     void Move(float distance)
     {
-        Vector2 newPosition = path.Value.GetPosition((distanceTravelled += distance)/path.Value.GetLength());
+        Vector2 newPosition = path.GetPosition((distanceTravelled += distance)/path.GetLength());
         currentPosition = new Vector3(newPosition.x, newPosition.y, currentPosition.z);
     }
 
     IEnumerator movementCoroutine()
     {
+        yield return new WaitForSeconds(0.5f);
+
         while (isMoving)
         {
             Move(speed * Time.deltaTime);
