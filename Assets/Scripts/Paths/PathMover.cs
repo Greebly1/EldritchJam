@@ -1,6 +1,7 @@
 using AYellowpaper;
 using System.Collections;
 using System.Collections.Generic;
+using UltEvents;
 using UnityEngine;
 
 /// <summary>
@@ -9,7 +10,11 @@ using UnityEngine;
 /// </summary>
 public class PathMover : MonoBehaviour
 {
-    
+    #region Constant data
+    readonly float REACHED_END_PADDING = 1; //some padding for how close a mover needs to be to reach the end of the path
+    #endregion
+
+    public UltEvent ReachedEndOfPath;
     
     [SerializeField] float baseSpeed = 1; //how many units per second this thing moves along the path
     private bool IsMoving = false; //has a public setter/getter
@@ -45,6 +50,14 @@ public class PathMover : MonoBehaviour
             transform.position = value;
         }
     }
+
+    bool atEndOfPath
+    {
+        get
+        {
+            return distanceTravelled >= path.Value.GetLength() - REACHED_END_PADDING;
+        }
+    }
     #endregion
 
     #region Monobehavior Callbacks
@@ -67,6 +80,12 @@ public class PathMover : MonoBehaviour
         while (isMoving)
         {
             Move(speed * Time.deltaTime);
+
+            if (atEndOfPath)
+            {
+                ReachedEndOfPath.Invoke();
+                isMoving = false;
+            }
 
             yield return null;
         }
