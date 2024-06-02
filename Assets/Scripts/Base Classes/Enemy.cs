@@ -7,7 +7,7 @@ using UnityEngine;
 /// Dependents:
 /// IEnemySpawner, EnemyManager, probably more
 /// </summary>
-public class Enemy : MonoBehaviour //should probably implement IDamagable, and ITargetable
+public class Enemy : MonoBehaviour, ITargetable //should probably implement IDamagable, and ITargetable
 {
-    
+    public static List<Enemy> AllActiveEnemies { get; private set; }
 }
