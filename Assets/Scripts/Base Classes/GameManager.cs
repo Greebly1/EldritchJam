@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
         MainMenu,
         MapSelect,
         Game,
+        Options,
         Credits
     }
     private GameStates currentState;
@@ -51,10 +52,13 @@ public class GameManager : MonoBehaviour
             case GameStates.Game:
 
                 break;
+            case GameStates.Options:
+
+                break;
             case GameStates.Credits:
 
                 break;
-            default: // Credits state
+            default: // Main Menu state
                 
                 break;
         }

@@ -27,7 +27,7 @@ public class TestCamera : MonoBehaviour
             float mousePositionDeltaX = -Input.mousePositionDelta.x * 0.001f * sensitivity;
             float mousePositionDeltaY = -Input.mousePositionDelta.y * 0.001f * sensitivity;
             Camera.main.transform.position += new Vector3(mousePositionDeltaX, mousePositionDeltaY, 0);
-            Camera.main.transform.position = new Vector3(Mathf.Clamp(Camera.main.transform.position.x, -gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.x / 2 + screenWidth, gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.x / 2 - screenWidth),
+            Camera.main.transform.position = new Vector3(Mathf.Clamp(Camera.main.transform.position.x, -gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.x / 2 + screenWidth, gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.x / 2 - screenWidth + 1.55f),
                 Mathf.Clamp(Camera.main.transform.position.y, -gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.y / 2 + screenHeight, gameManager.currentMap.GetComponent<SpriteRenderer>().bounds.size.y / 2 - screenHeight),
                 -10);
         }
