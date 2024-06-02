@@ -16,7 +16,7 @@ public class EldrichWaveManager : WaveManager
     {
         foreach (InterfaceReference<IEnemyPath> enemypath in enemyPaths)
         {
-            (enemypath as IWaveSpawner).SpawnWave(waveIndex, (enemypath as IEnemySpawner));
+            (enemypath as IWaveSpawner)?.SpawnWave(waveIndex, (enemypath as IEnemySpawner));
         }
     }
 }
