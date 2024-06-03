@@ -89,7 +89,7 @@ public class StatWallet : MonoBehaviour, IDamageAble
     public float insanity
     {
         get { return _insanity; }
-        protected set
+        set
         {
             float newval = Mathf.Clamp(value, 0, MAX_INSANITY);
             if (_insanity != newval) //insanity changed
