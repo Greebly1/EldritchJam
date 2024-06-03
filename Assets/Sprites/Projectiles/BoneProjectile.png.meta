@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BoneProjectile_0: -4976234673607097884
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
