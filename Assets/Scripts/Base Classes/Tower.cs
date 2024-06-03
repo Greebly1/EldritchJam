@@ -13,10 +13,10 @@ public class Tower : MonoBehaviour
     [Header("Tower Data")]
     [SerializeField]
     [Tooltip("The amount of currency the player gets by selling a placed tower.")]
-    private float sellValue;
+    private int sellValue;
     [SerializeField]
     [Tooltip("The amount of currency the player loses by placing a tower.")]
-    private float placeCost;
+    public int placeCost;
 
     [Header("Weapon Data")]
     [SerializeField]

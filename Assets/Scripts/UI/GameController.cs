@@ -11,6 +11,10 @@ public class GameController : MonoBehaviour
     [Header("Towers")]
     public GameObject tower1;
     public GameObject tower1Sprite;
+    public GameObject tower2;
+    public GameObject tower2Sprite;
+    public GameObject tower3;
+    public GameObject tower3Sprite;
 
     [Header("UI Elements")]
     [SerializeField] private GameObject panel;
@@ -67,14 +71,17 @@ public class GameController : MonoBehaviour
             switch (currentTowerID)
             {
                 case 0:
+                    stats.SpendBlood(tower1.GetComponent<Tower>().placeCost);
                     Instantiate(tower1, currentTower.transform.position, Quaternion.identity);
                     break;
                 case 1:
-
+                    stats.SpendBlood(tower2.GetComponent<Tower>().placeCost);
+                    Instantiate(tower2, currentTower.transform.position, Quaternion.identity);
                     break;
                 case 2:
-
-                  break;
+                    stats.SpendBlood(tower3.GetComponent<Tower>().placeCost);
+                    Instantiate(tower3, currentTower.transform.position, Quaternion.identity);
+                    break;
             }
 
             Destroy(currentTower);
@@ -83,21 +90,37 @@ public class GameController : MonoBehaviour
 
     public void DragTower(int towerID)
     {
-        draggingTower = true;
-        currentTowerID = towerID;
-        cancelButton.SetActive(true);
-        panel.SetActive(false);
-        
         switch (towerID)
         {
             case 0:
-                currentTower = Instantiate(tower1Sprite, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                if (stats.blood >= tower1.GetComponent<Tower>().placeCost)
+                {
+                    draggingTower = true;
+                    currentTowerID = towerID;
+                    cancelButton.SetActive(true);
+                    panel.SetActive(false);
+                    currentTower = Instantiate(tower1Sprite, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                }
                 break;
             case 1:
-
+                if (stats.blood >= tower1.GetComponent<Tower>().placeCost)
+                {
+                    draggingTower = true;
+                    currentTowerID = towerID;
+                    cancelButton.SetActive(true);
+                    panel.SetActive(false);
+                    currentTower = Instantiate(tower2Sprite, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                }
                 break;
             case 2:
-
+                if (stats.blood >= tower1.GetComponent<Tower>().placeCost)
+                {
+                    draggingTower = true;
+                    currentTowerID = towerID;
+                    cancelButton.SetActive(true);
+                    panel.SetActive(false);
+                    currentTower = Instantiate(tower3Sprite, Camera.main.ScreenToWorldPoint(Input.mousePosition), Quaternion.identity);
+                }
                 break;
         }
     }

@@ -796,6 +796,10 @@ MonoBehaviour:
   stats: {fileID: 289367336}
   tower1: {fileID: 720882406248700040, guid: 51c7e72ebf6bf0943ab5c08061b19287, type: 3}
   tower1Sprite: {fileID: 6744314892175545773, guid: b1062623252021c4d8370e76ffa3d894, type: 3}
+  tower2: {fileID: 0}
+  tower2Sprite: {fileID: 0}
+  tower3: {fileID: 0}
+  tower3Sprite: {fileID: 0}
   panel: {fileID: 362126789}
   cancelButton: {fileID: 1973915594}
   healthText: {fileID: 660105159}
@@ -2461,7 +2465,7 @@ MonoBehaviour:
     _PersistentCalls: []
   PlayerDied:
     _PersistentCalls: []
-  maxHealth: 20
+  maxHealth: 100
   InsightChanged:
     _PersistentCalls: []
   maxInsight: 10
@@ -2470,8 +2474,8 @@ MonoBehaviour:
   maxBlood: 100
   InsanityChanged:
     _PersistentCalls: []
-  healthRegenSpeed: 0.1
-  healthRegenDelay: 0
+  healthRegenSpeed: 2
+  healthRegenDelay: 5
   _healthRegenEnabled: 1
   insanityRegen: 0.1
   _insanityRegenEnabled: 1
@@ -3688,7 +3692,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 285.2, y: -20.824938}
+  m_AnchoredPosition: {x: 285.2, y: -20.824951}
   m_SizeDelta: {x: 150.43, y: 41.48999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &660105159
@@ -6085,7 +6089,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069958580
@@ -8589,7 +8593,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 285.2, y: -58.95}
+  m_AnchoredPosition: {x: 285.2, y: -58.949997}
   m_SizeDelta: {x: 150.44, y: 34.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1814989932

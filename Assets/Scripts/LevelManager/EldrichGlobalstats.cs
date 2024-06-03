@@ -131,6 +131,7 @@ public class EldrichGlobalStats : StatWallet
     {
         healthRegenEnabled = healthRegenEnabled; //setters automatically handle some logic for checking if we should start regen coroutines
         insanityRegenEnabled = insanityRegenEnabled;
+        GainBlood(50);
     }
     #endregion
 
