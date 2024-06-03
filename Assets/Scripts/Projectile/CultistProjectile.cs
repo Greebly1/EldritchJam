@@ -20,6 +20,8 @@ public class CultistProjectile : MonoBehaviour
     [SerializeField]
     private float rotateSpeed = 10;
 
+    private bool isActive = true;
+
     public void Init(float _damage, Weapon _source)
     {
         damage = _damage;
@@ -28,8 +30,11 @@ public class CultistProjectile : MonoBehaviour
 
     private void Update()
     {
-        transform.position += transform.up * speed * Time.deltaTime;
-        boneSprite.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        if (isActive)
+        {
+            transform.position += transform.up * speed * Time.deltaTime;
+            boneSprite.transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -58,6 +63,7 @@ public class CultistProjectile : MonoBehaviour
 
     private void DestroyProjectile()
     {
+        isActive = false;
         OnDestroy.Invoke();
     }
 }

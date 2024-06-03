@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour, ITargetable, IDamageAble //should probably i
         if(damage.teamSource == Team.Player)
         {
             currentHealth -= damage.amount;
-            if(currentHealth < 0)
+            if(currentHealth <= 0)
             {
                 Die();
             }
