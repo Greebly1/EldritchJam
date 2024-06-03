@@ -49,7 +49,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 541609127213790967}
   sellValue: 0
-  placeCost: 0
+  placeCost: 10
   damageMultiplier: 1
   attackSpeedMultiplier: 1
   rangeMultiplier: 1
