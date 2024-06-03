@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     private GameObject currentTower;
     private int currentTowerID;
     private bool hoveringOverButton;
+    private GameObject selectedTower;
 
     // Start is called before the first frame update
     void Start()
@@ -136,5 +137,10 @@ public class GameController : MonoBehaviour
     public void ToggleHoveringOverButton(bool hovering)
     {
         hoveringOverButton = hovering;
+    }
+
+    public void SetSelectedTower()
+    {
+        
     }
 }
