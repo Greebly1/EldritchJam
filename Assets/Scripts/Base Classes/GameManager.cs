@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     }
     public GameStates currentState;
 
+    public GameObject gameGameObjects;
     public GameObject currentMap;
     public GameObject mainMenu;
     public GameObject mapSelect;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameGameObjects.SetActive(false);
         currentState = GameStates.MainMenu;
         ChangeState((int)currentState);
     }
@@ -66,7 +68,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(false);
-                currentMap.SetActive(false);
+                gameGameObjects.SetActive(false);
                 break;
             case GameStates.MapSelect:
                 mainMenu.SetActive(false);
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(false);
-                currentMap.SetActive(false);
+                gameGameObjects.SetActive(false);
                 break;
             case GameStates.Game:
                 mainMenu.SetActive(false);
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(true);
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(false);
-                currentMap.SetActive(true);
+                gameGameObjects.SetActive(true);
                 break;
             case GameStates.Options:
                 mainMenu.SetActive(false);
@@ -90,7 +92,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 optionsMenu.SetActive(true);
                 creditsMenu.SetActive(false);
-                currentMap.SetActive(false);
+                gameGameObjects.SetActive(false);
                 break;
             case GameStates.Credits:
                 mainMenu.SetActive(false);
@@ -98,7 +100,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(true);
-                currentMap.SetActive(false);
+                gameGameObjects.SetActive(false);
                 break;
             default: // Main Menu state
                 mainMenu.SetActive(true);
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
                 gameScreen.SetActive(false);
                 optionsMenu.SetActive(false);
                 creditsMenu.SetActive(false);
-                currentMap.SetActive(false);
+                gameGameObjects.SetActive(false);
                 break;
         }
     }
