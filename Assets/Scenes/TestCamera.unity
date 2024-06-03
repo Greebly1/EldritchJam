@@ -2461,7 +2461,7 @@ MonoBehaviour:
     _PersistentCalls: []
   PlayerDied:
     _PersistentCalls: []
-  maxHealth: 100
+  maxHealth: 20
   InsightChanged:
     _PersistentCalls: []
   maxInsight: 10
@@ -2470,8 +2470,8 @@ MonoBehaviour:
   maxBlood: 100
   InsanityChanged:
     _PersistentCalls: []
-  healthRegenSpeed: 2
-  healthRegenDelay: 5
+  healthRegenSpeed: 0.1
+  healthRegenDelay: 0
   _healthRegenEnabled: 1
   insanityRegen: 0.1
   _insanityRegenEnabled: 1

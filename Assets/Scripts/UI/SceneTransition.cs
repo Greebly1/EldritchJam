@@ -14,8 +14,8 @@ public class SceneTransition : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         changeToState = state;
-        topBorder.GetComponent<RectTransform>().position = new Vector2(0, 9);
-        bottomBorder.GetComponent<RectTransform>().position = new Vector2(0, -9);
+        topBorder.GetComponent<RectTransform>().localPosition = new Vector2(0, 600);
+        bottomBorder.GetComponent<RectTransform>().localPosition = new Vector2(0, -600);
     }
 
     // Update is called once per frame

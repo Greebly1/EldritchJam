@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Eldritch_Map_draft_1_0: 4776775155428170170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
